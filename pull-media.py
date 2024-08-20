@@ -9,7 +9,6 @@ import io
 from pydub import AudioSegment, effects
 
 MEDIA_PATH = 'media'
-MEDIA_STUBS_PATH = 'media-stubs'
 META_PATH = 'meta.json'
 
 FORMAT = 'mp3'
@@ -38,13 +37,6 @@ if __name__ == '__main__':
     else:
         media = set()
         os.mkdir(MEDIA_PATH)
-
-    if os.path.exists(MEDIA_STUBS_PATH):
-        for name in os.listdir(MEDIA_STUBS_PATH):
-            assert name.endswith('.stub'), name
-            media.add(name[:-5])
-    else:
-        os.mkdir(MEDIA_STUBS_PATH)
 
     meta = {}
     downloads = 0
